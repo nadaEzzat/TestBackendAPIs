@@ -9,7 +9,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
@@ -54,8 +53,6 @@ public class MainActivity extends AppCompatActivity implements HeaderAdapter.Cal
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
-        Log.i("APIResponse" , "onCreate");
 
         setUpComponents();
         setHeaderDialogComponents();
@@ -342,7 +339,6 @@ public class MainActivity extends AppCompatActivity implements HeaderAdapter.Cal
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        Log.i("APIResponse" , "onSaveInstanceState");
         outState.putString(Params.URL , binding.url.getEditText().getText().toString());
         outState.putParcelableArrayList(Params.BODY , bodyAdapter.getBody());
         outState.putParcelableArrayList(Params.HEADERS , headeradapter.getHeaders());
@@ -353,7 +349,6 @@ public class MainActivity extends AppCompatActivity implements HeaderAdapter.Cal
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        Log.i("APIResponse" , "onRestoreInstanceState");
         String url = savedInstanceState.getString(Params.URL);
         ArrayList<Data> bodyData = savedInstanceState.getParcelableArrayList(Params.BODY);
         ArrayList<Data> headers =savedInstanceState.getParcelableArrayList(Params.HEADERS);
